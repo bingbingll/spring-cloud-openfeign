@@ -1,0 +1,25 @@
+server:
+  port: 8002
+  tomcat:
+    uri-encoding: utf-8
+    max-http-post-size: 20
+spring:
+  application:
+    name: feign
+#日志配置
+logging:
+  level:
+    root: warn
+    org.springframework.web: debug
+  path: ./log/
+#服务注册配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+  instance:
+    prefer-ip-address: true
+ribbon:
+  eager-load:
+    enabled: true
+    clients: feign
